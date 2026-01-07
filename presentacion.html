@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>S.I.G.P. | Presentación Profesional</title>
+
+    <!-- Reveal.js CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/white.min.css">
+
+    <!-- Fuentes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Estilos Personalizados: Universidad Autónoma de Chile -->
+    <style>
+        :root {
+            --ua-orange: #EA7600;  /* Naranja Institucional */
+            --ua-grey: #333333;    /* Gris Corporativo */
+            --ua-light: #f8f9fa;
+            --text-main: #2c3e50;
+        }
+
+        body { background-color: white; }
+
+        .reveal { 
+            font-family: 'Open Sans', sans-serif; 
+            color: var(--text-main); 
+            font-size: 16px; 
+        }
+        
+        /* Tipografía Corporativa Ajustada */
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--ua-orange);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+        
+        .reveal h1 { font-size: 2.8em; font-weight: 700; margin-bottom: 15px; color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .reveal h2 { font-size: 1.8em; border-bottom: 3px solid var(--ua-orange); padding-bottom: 10px; display: inline-block; color: var(--ua-grey); font-weight: 600; margin-bottom: 30px; }
+        .reveal h3 { font-size: 1.1em; color: rgba(255,255,255,0.95); font-weight: 400; text-transform: none; margin-top: 0; letter-spacing: 0.5px; }
+        .reveal p, .reveal li { font-size: 1.1em; line-height: 1.6; font-weight: 300; margin-bottom: 10px; }
+        .reveal strong { font-weight: 600; color: var(--ua-orange); }
+
+        /* Fondos Especiales con Gradiente Corporativo Sobrio */
+        .slide-corporate { 
+            background: linear-gradient(135deg, #EA7600 0%, #d35400 100%) !important; 
+            color: white !important;
+        }
+        .slide-corporate h2, .slide-corporate p { color: white !important; border-color: white !important; }
+
+        /* Componentes de Diseño "Clean" */
+        .card-box { 
+            background: white; 
+            border-left: 5px solid var(--ua-orange); 
+            padding: 25px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+        .card-box:hover { transform: translateX(3px); }
+        .card-box h4 { font-size: 1em; color: var(--ua-grey); margin-bottom: 10px; font-weight: 600; }
+        
+        .metric-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .metric-box:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(234, 118, 0, 0.1); border-color: var(--ua-orange); }
+        .metric-val { font-size: 2.5em; font-weight: 700; color: var(--ua-orange); display: block; line-height: 1; margin-bottom: 5px; }
+        .metric-lbl { font-size: 0.8em; text-transform: uppercase; color: var(--ua-grey); font-weight: 600; letter-spacing: 0.5px; }
+        .metric-desc { font-size: 0.7em; color: #666; margin-top: 5px; line-height: 1.4; }
+
+        /* Layout Flexible y Balanceado */
+        .flex-row { display: flex; justify-content: space-between; gap: 40px; align-items: center; }
+        .col { flex: 1; }
+
+        /* Listas Personalizadas */
+        .reveal ul { margin-left: 0; list-style: none; padding: 0; }
+        .reveal ul li { padding-left: 25px; position: relative; margin-bottom: 12px; font-size: 1em; }
+        .reveal ul li::before {
+            content: "•";
+            color: var(--ua-orange);
+            font-weight: bold;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+            line-height: 1;
+        }
+
+        /* Marco de Laptop para Demo - Ajustado */
+        .laptop-wrapper { width: 70%; margin: 0 auto; position: relative; perspective: 1000px; margin-top: 20px; }
+        .laptop-screen { background: #222; border-radius: 10px 10px 0 0; padding: 10px 10px 0 10px; box-shadow: 0 15px 40px rgba(0,0,0,0.25); transition: transform 0.5s; }
+        .laptop-display { background: white; overflow: hidden; border-radius: 2px 2px 0 0; position: relative; aspect-ratio: 16/9; display: flex; justify-content: center; align-items: center; }
+        .laptop-base { background: #e0e0e0; height: 14px; border-radius: 0 0 10px 10px; position: relative; }
+        .laptop-base::after { content:""; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: #ccc; border-radius: 0 0 3px 3px; }
+        
+        /* Contenedor de Captura Simulada (CSS Only) */
+        .simulated-screen { width: 100%; height: 100%; background: #f4f6f8; padding: 10px; box-sizing: border-box; display: flex; flex-direction: column; }
+        .sim-header { height: 30px; background: #0f2c4a; display: flex; align-items: center; padding: 0 10px; color: white; font-size: 10px; font-weight: bold; justify-content: space-between; }
+        .sim-body { flex: 1; display: grid; grid-template-columns: 20% 80%; gap: 10px; margin-top: 10px; }
+        .sim-sidebar { background: #0f2c4a; border-radius: 4px; }
+        .sim-content { display: grid; grid-template-rows: 1fr 1fr; gap: 10px; }
+        .sim-dash-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+        .sim-card { background: white; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .sim-chart-bar { width: 8px; background: #e0e0e0; height: 100%; margin: 0 2px; border-radius: 2px; position: relative; }
+        .sim-chart-fill { position: absolute; bottom: 0; width: 100%; background: #EA7600; border-radius: 2px; }
+
+        /* Footer Fijo Elegante */
+        .branding-footer {
+            position: fixed;
+            bottom: 15px;
+            left: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 20;
+            pointer-events: none;
+        }
+        .branding-logo { height: 40px; opacity: 1; }
+        .branding-text { font-size: 10px; color: #888; border-left: 1px solid #ddd; padding-left: 15px; font-family: 'Montserrat', sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Animaciones de Entrada Suaves */
+        .fragment.visible { animation: fadeInUp 0.6s ease-out; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Ajuste de imágenes en columnas */
+        .col img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- 1. PORTADA -->
+            <section class="slide-corporate">
+                <!-- Logo Blanco Oficial UA -->
+                <img src="https://www.uautonoma.cl/wp-content/uploads/2019/12/logo-uautonoma-blanco.png" alt="Logo UA Blanco" style="width: 320px; margin-bottom: 40px; border:none; background:none; box-shadow:none;">
+                
+                <h1 class="r-fit-text">S.I.G.P.</h1>
+                <h3>Sistema Integrado de Gestión Pública</h3>
+                
+                <div style="margin-top: 60px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.3); width: 50%; margin-left: auto; margin-right: auto;">
+                    <p style="font-weight: 600; margin-bottom: 5px; font-size: 0.9em; letter-spacing: 1px;">INNOVACIÓN EDUCATIVA CON IA</p>
+                    <p style="font-size: 0.8em; opacity: 0.8;">Asignatura: IA Aplicada a la Docencia</p>
+                </div>
+            </section>
+
+            <!-- 2. PROBLEMA -->
+            <section>
+                <h2>Identificación del Problema</h2>
+                <div class="flex-row">
+                    <div class="col fragment fade-up">
+                        <div class="card-box">
+                            <h4>Contexto Académico</h4>
+                            <p style="font-size: 0.9em; margin: 0;">Asignatura <strong>"Economía del Sector Público"</strong> (Nivel 9), carrera de Administración Pública, modalidad <strong>Vespertino TECH</strong>.</p>
+                        </div>
+                        <div class="card-box" style="border-left-color: var(--ua-grey);">
+                            <h4>La Brecha Crítica</h4>
+                            <p style="font-size: 0.9em; margin: 0;">Existe una desconexión profunda entre la <strong>teoría económica abstracta</strong> (modelos ideales) y la <strong>presión real</strong> de la toma de decisiones bajo restricción presupuestaria.</p>
+                        </div>
+                    </div>
+                    <div class="col fragment fade-up" style="text-align: center;">
+                        <img src="https://img.freepik.com/free-vector/business-decisions-concept-illustration_114360-4240.jpg?w=740" alt="Ilustración Toma de Decisiones">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. OBJETIVOS -->
+            <section>
+                <h2>Objetivos Estratégicos</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 25px; margin-top: 40px;">
+                    <div class="metric-box fragment zoom-in" data-fragment-index="1">
+                        <div style="font-size: 3em; margin-bottom: 15px;">🔍</div>
+                        <span class="metric-lbl">1. ANALIZAR</span>
+                        <p class="metric-desc">Identificar externalidades negativas utilizando <strong>Big Data simulada</strong> y escenarios realistas.</p>
+                    </div>
+                    <div class="metric-box fragment zoom-in" data-fragment-index="2">
+                        <div style="font-size: 3em; margin-bottom: 15px;">🛠️</div>
+                        <span class="metric-lbl">2. APLICAR</span>
+                        <p class="metric-desc">Implementar <strong>políticas públicas</strong> (impuestos, regulación) en un entorno seguro y controlado.</p>
+                    </div>
+                    <div class="metric-box fragment zoom-in" data-fragment-index="3">
+                        <div style="font-size: 3em; margin-bottom: 15px;">📊</div>
+                        <span class="metric-lbl">3. EVALUAR</span>
+                        <p class="metric-desc">Medir el <strong>impacto socioeconómico</strong> de las decisiones mediante feedback inmediato.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. BENEFICIARIOS -->
+            <section>
+                <h2>Beneficiarios Clave</h2>
+                <div class="flex-row" style="align-items: center;">
+                    <div class="col fragment fade-right">
+                        <ul style="font-size: 1.1em;">
+                            <li><strong>Carrera:</strong> Administración Pública.</li>
+                            <li><strong>Nivel:</strong> Ciclo Avanzado (9° Trimestre).</li>
+                            <li><strong>Modalidad:</strong> <span style="color: var(--ua-orange); font-weight: 700; background: rgba(234, 118, 0, 0.08); padding: 2px 8px; border-radius: 4px;">Vespertino TECH</span>.</li>
+                            <li><strong>Perfil:</strong> Adultos trabajadores (Enfoque Andragógico).</li>
+                        </ul>
+                    </div>
+                    <div class="col fragment fade-left">
+                        <div class="card-box">
+                            <h4>Necesidad Específica</h4>
+                            <p style="font-size: 0.9em; margin: 0;">Este grupo valora <strong>herramientas prácticas y directas</strong> que simulen entornos laborales reales para adquirir competencias inmediatamente transferibles a su trabajo.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. JUSTIFICACIÓN -->
+            <section>
+                <h2>Justificación de la Innovación</h2>
+                <div class="flex-row">
+                    <div class="col" style="text-align:right; padding-right:40px; border-right:3px solid var(--ua-orange);">
+                        <h4 style="color:var(--ua-grey); font-size: 0.9em; margin-bottom: 5px;">Tipo</h4>
+                        <p style="font-weight:700; font-size:1.3em; color:var(--ua-orange); margin-top: 0;">INCREMENTAL</p>
+                        <br>
+                        <h4 style="color:var(--ua-grey); font-size: 0.9em; margin-bottom: 5px;">Dimensión</h4>
+                        <p style="font-weight:700; font-size:1.3em; color:var(--ua-orange); margin-top: 0;">TECNOLÓGICA</p>
+                    </div>
+                    <div class="col fragment fade-in" style="padding-left:30px;">
+                        <h4 style="color:var(--ua-grey); font-size:1em; margin-bottom: 15px;">Del Aprendizaje Pasivo al Situado</h4>
+                        <p style="color:#555; font-size: 0.95em;">La <strong>Inteligencia Artificial</strong> democratiza el acceso a simuladores de "Gobierno Digital" de alta fidelidad.</p>
+                        <p style="color:#555; font-size: 0.95em; margin-top: 10px;">Esto permite una <strong>personalización curricular total</strong> sin los costos prohibitivos de licencias de software propietario.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. METODOLOGÍA IA (FLUJO) -->
+            <section>
+                <h2>Metodología de Implementación</h2>
+                <div style="background: white; padding: 30px; border-radius: 12px; border: 1px solid #e0e0e0; box-shadow: 0 8px 25px rgba(0,0,0,0.03); text-align: center;">
+                    <div style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 25px;">
+                        <div class="fragment fade-up">
+                            <div style="font-size: 2.2em; margin-bottom: 8px;">🤖</div>
+                            <h4 style="font-size: 0.7em; color: var(--ua-grey);">1. Prompting</h4>
+                            <p style="font-size: 0.6em; margin: 0;">Docente define escenario</p>
+                        </div>
+                        <div class="fragment fade-up" style="font-size: 1.5em; color: var(--ua-orange);">➜</div>
+                        <div class="fragment fade-up">
+                            <div style="font-size: 2.2em; margin-bottom: 8px;">💻</div>
+                            <h4 style="font-size: 0.7em; color: var(--ua-grey);">2. Generación</h4>
+                            <p style="font-size: 0.6em; margin: 0;">IA crea Código & Datos</p>
+                        </div>
+                        <div class="fragment fade-up" style="font-size: 1.5em; color: var(--ua-orange);">➜</div>
+                        <div class="fragment fade-up">
+                            <div style="font-size: 2.2em; margin-bottom: 8px;">🎓</div>
+                            <h4 style="font-size: 0.7em; color: var(--ua-grey);">3. Simulación</h4>
+                            <p style="font-size: 0.6em; margin: 0;">Estudiante Resuelve</p>
+                        </div>
+                    </div>
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
+                    <div class="flex-row" style="text-align: left; gap: 30px;">
+                        <div class="col">
+                            <h4 style="font-size:0.8em; margin-bottom:10px; color:var(--ua-grey);">Ventajas Técnicas</h4>
+                            <ul style="font-size: 0.85em;">
+                                <li>Generación automática de código web (HTML5).</li>
+                                <li>Escenarios de crisis infinitos y adaptables.</li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h4 style="font-size:0.8em; margin-bottom:10px; color:var(--ua-grey);">Ventajas Éticas</h4>
+                            <ul style="font-size: 0.85em;">
+                                <li>Uso de <strong>datos 100% sintéticos</strong> (Privacidad).</li>
+                                <li>Accesibilidad universal (sin registro/login).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. DEMOSTRACIÓN APP (SIMULACIÓN REALISTA) -->
+            <section class="slide-corporate">
+                <h2 style="color:white !important; border:none; margin-bottom:20px; font-size: 1.6em;">DEMOSTRACIÓN DEL APP</h2>
+                
+                <div class="laptop-wrapper fragment fade-up">
+                    <div class="laptop-screen">
+                        <div class="laptop-display">
+                            <!-- AQUI ES DONDE DEBES REEMPLAZAR LA URL DE LA IMAGEN -->
+                            <!-- Si la imagen está en la misma carpeta, deja el nombre del archivo. -->
+                            <!-- Si no carga, sube tu imagen a internet y pega el link aquí. -->
+                            <img src="descarga.png" class="app-screenshot" alt="Captura Simulador S.I.G.P.">
+                        </div>
+                    </div>
+                    <div class="laptop-base"></div>
+                </div>
+                
+                <div style="margin-top: 30px; color: white;">
+                    <p style="font-size:0.8em; opacity:0.9;"><strong>Flujo de Navegación:</strong> Dashboard » Presupuesto » Sala de Decisiones</p>
+                </div>
+            </section>
+
+            <!-- 8. IMPACTO -->
+            <section>
+                <h2>Impacto Educativo (KPIs)</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 25px; margin-top: 40px;">
+                    <div class="metric-box fragment fade-up" data-fragment-index="1">
+                        <span class="metric-val">+20%</span>
+                        <span class="metric-lbl">RENDIMIENTO ACADÉMICO</span>
+                        <p class="metric-desc">Mejora proyectada en evaluaciones prácticas.</p>
+                    </div>
+                    <div class="metric-box fragment fade-up" data-fragment-index="2">
+                        <span class="metric-val">>70%</span>
+                        <span class="metric-lbl">COMPETENCIA TÉCNICA</span>
+                        <p class="metric-desc">Estudiantes aplicando correctamente Impuestos Pigouvianos.</p>
+                    </div>
+                    <div class="metric-box fragment fade-up" data-fragment-index="3">
+                        <span class="metric-val">90%</span>
+                        <span class="metric-lbl">SATISFACCIÓN USUARIA</span>
+                        <p class="metric-desc">Valoración positiva de la innovación docente.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. CIERRE Y CONCLUSIONES -->
+            <section>
+                <h2>Conclusiones</h2>
+                <div class="card-box" style="text-align:center; border-left:none; border-top:5px solid var(--ua-orange); padding: 40px;">
+                    <p style="font-size:1.3em; font-weight: 300; font-style:italic; color:#555; margin: 0;">"La Inteligencia Artificial no reemplaza la docencia; <br><strong>la profesionaliza</strong>, permitiendo crear entornos de práctica realista antes inalcanzables."</p>
+                </div>
+            </section>
+
+            <!-- 10. REFERENCIAS BIBLIOGRÁFICAS -->
+            <section style="text-align: left;">
+                <h2 style="margin-bottom: 30px; border-bottom: none;">Referencias Bibliográficas</h2>
+                <div style="background: var(--ua-light); padding: 30px; border-radius: 10px; border-left: 4px solid var(--ua-orange);">
+                    <ul style="font-size: 0.8em; color: #444; line-height: 1.8; margin-left: 0;">
+                        <li>Salinas, J. (2004). Innovación docente y uso de las TIC en la enseñanza universitaria. <em>Revista Universidad y Sociedad del Conocimiento</em>, 1(1), 1-16.</li>
+                        <li>Stiglitz, J. E., & Rosengard, J. K. (2016). <em>La economía del sector público</em> (4a ed.). Antoni Bosch Editor.</li>
+                        <li>UNESCO. (2021). <em>Inteligencia artificial y educación: Guía para las personas a cargo de formular políticas</em>. Organización de las Naciones Unidas para la Educación, la Ciencia y la Cultura.</li>
+                        <li>Universidad Autónoma de Chile. (2023). <em>Modelo Educativo: Innovación y Tecnología</em>. Vicerrectoría Académica.</li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Footer Fijo con Logo Color Oficial -->
+    <div class="branding-footer">
+        <img src="https://www.uautonoma.cl/wp-content/uploads/2019/12/logo-uautonoma.png" alt="Logo UA Color" class="branding-logo">
+        <span class="branding-text">PROYECTO DE INNOVACIÓN S.I.G.P. | ECONOMÍA DEL SECTOR PÚBLICO</span>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: false,
+            transition: 'concave', // Transición elegante tipo "cambio de hoja"
+            backgroundTransition: 'slide',
+            autoAnimateEasing: 'ease-out',
+            autoAnimateDuration: 0.8
+        });
+    </script>
+</body>
+</html>
